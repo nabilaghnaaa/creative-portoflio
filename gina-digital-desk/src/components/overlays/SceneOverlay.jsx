@@ -11,6 +11,7 @@ import PhoneScreen from "../phone/PhoneScreen";
 import CoffeeScreen from "../coffee/CoffeeScreen";
 import travels from "../../data/travels";
 import certificates from "../../data/certificates";
+import LanyardScreen from "../lanyard/LanyardScreen";
 
 export default function SceneOverlay() {
     const { activeObject, closeObject } = useDesk();
@@ -242,6 +243,16 @@ export default function SceneOverlay() {
 
                     {activeObject === "cv" && (
                         <CvViewer
+                            onClose={handleClose}
+                        />
+                    )}
+
+                    {/* ========================================
+                        LANYARD
+                    ======================================== */}
+
+                    {activeObject === "lanyard" && (
+                        <LanyardScreen
                             onClose={handleClose}
                         />
                     )}

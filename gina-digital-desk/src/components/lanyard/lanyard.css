@@ -1,0 +1,662 @@
+/* ========================================
+   LANYARD OVERLAY
+======================================== */
+
+.lanyard-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(38, 30, 34, 0.58);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    overflow-y: auto;
+}
+
+/* ========================================
+   MAIN PAPER
+======================================== */
+
+.lanyard-window {
+    position: relative;
+    width: min(1380px, 94vw);
+    min-height: 790px;
+    padding: 48px 52px;
+    background: #fbf6f0;
+    color: #2b2529;
+    box-shadow:
+        0 35px 90px rgba(30, 20, 25, 0.35),
+        0 8px 25px rgba(30, 20, 25, 0.12);
+    overflow: hidden;
+}
+
+/* ========================================
+   PAPER TEXTURE
+======================================== */
+
+.lanyard-window::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(196, 67, 114, 0.045),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(125, 105, 113, 0.045),
+            transparent 30%
+        );
+}
+
+/* ========================================
+   CLOSE
+======================================== */
+
+.lanyard-close {
+    position: absolute;
+    top: 17px;
+    right: 19px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #30292d;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.lanyard-close:hover {
+    transform: rotate(90deg);
+    opacity: 0.45;
+}
+
+.lanyard-close:focus {
+    outline: none;
+}
+
+.lanyard-close:focus-visible {
+    outline: 2px solid #c44372;
+    outline-offset: 3px;
+}
+
+/* ========================================
+   DECORATIVE TAPE
+======================================== */
+
+.lanyard-paper-tape {
+    position: absolute;
+    z-index: 2;
+    width: 125px;
+    height: 32px;
+    background: rgba(218, 173, 185, 0.43);
+    pointer-events: none;
+}
+
+.lanyard-paper-tape-top {
+    top: -9px;
+    left: 22%;
+    transform: rotate(-3deg);
+}
+
+.lanyard-paper-tape-bottom {
+    right: -25px;
+    bottom: 8%;
+    transform: rotate(-7deg);
+    opacity: 0.5;
+}
+
+/* ========================================
+   MAIN LAYOUT
+======================================== */
+
+.lanyard-layout {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 330px minmax(0, 1fr);
+    gap: 55px;
+    min-height: 690px;
+}
+
+/* ========================================
+   LEFT SIDE
+======================================== */
+
+.lanyard-visual {
+    position: relative;
+    min-height: 690px;
+    padding: 18px 42px 18px 4px;
+    border-right: 1px solid #d9c9cd;
+}
+
+/* ========================================
+   VISUAL LABEL
+======================================== */
+
+.lanyard-visual-label {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.lanyard-visual-label span {
+    color: #c44372;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.lanyard-visual-label small {
+    color: #99888f;
+    font-size: 8px;
+    line-height: 1.6;
+    letter-spacing: 2px;
+    text-align: right;
+}
+
+/* ========================================
+   LANYARD AREA
+======================================== */
+
+.lanyard-hanger {
+    position: relative;
+    height: 470px;
+    margin-top: 5px;
+}
+
+/* ========================================
+   LANYARD STRING
+======================================== */
+
+.lanyard-string {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 190px;
+    height: 215px;
+    transform: translateX(-50%);
+}
+
+.lanyard-string::before,
+.lanyard-string::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 205px;
+    border-radius: 4px;
+    background: #b8496f;
+}
+
+.lanyard-string::before {
+    left: 42px;
+    transform: rotate(8deg);
+}
+
+.lanyard-string::after {
+    right: 42px;
+    transform: rotate(-8deg);
+}
+
+.lanyard-string span {
+    position: absolute;
+    top: 0;
+    width: 13px;
+    height: 13px;
+    border: 2px solid #b8496f;
+    border-radius: 50%;
+    background: #fbf6f0;
+}
+
+.lanyard-string span:first-child {
+    left: 35px;
+}
+
+.lanyard-string span:last-child {
+    right: 35px;
+}
+
+/* ========================================
+   LANYARD CARD
+======================================== */
+
+.lanyard-card-holder {
+    position: absolute;
+    top: -100px;
+    left: -90%;
+    width: 750px;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 18px 18px rgba(40, 25, 30, 0.22));
+}
+
+.lanyard-card-holder img {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ========================================
+   CAPTION CARD
+======================================== */
+
+.lanyard-visual-caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 245px;
+    padding: 18px 21px;
+    background: #f3e8df;
+    transform: rotate(-2deg);
+    box-shadow: 0 9px 20px rgba(40, 25, 30, 0.08);
+}
+
+.lanyard-visual-caption::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 32%;
+    width: 88px;
+    height: 19px;
+    background: rgba(220, 174, 186, 0.45);
+    transform: rotate(2deg);
+}
+
+.lanyard-visual-caption span {
+    display: block;
+    color: #c44372;
+    font-size: 8px;
+    letter-spacing: 2.5px;
+}
+
+.lanyard-visual-caption strong {
+    display: block;
+    margin-top: 5px;
+    color: #40363b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.lanyard-visual-caption p {
+    margin: 8px 0 0;
+    color: #786b71;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+/* ========================================
+   RIGHT CONTENT
+======================================== */
+
+.lanyard-content {
+    min-width: 0;
+    padding: 18px 15px 10px 0;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.lanyard-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #d9c9cd;
+}
+
+.lanyard-kicker {
+    display: block;
+    margin-bottom: 12px;
+    color: #c44372;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+}
+
+.lanyard-header h1 {
+    margin: 0;
+    color: #292327;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(60px, 5.5vw, 84px);
+    font-weight: 400;
+    line-height: 0.86;
+    letter-spacing: -4px;
+}
+
+.lanyard-header h1 em {
+    color: #806c74;
+    font-weight: 400;
+}
+
+.lanyard-date {
+    padding-top: 25px;
+    color: #95848b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    line-height: 1.55;
+    text-align: right;
+}
+
+/* ========================================
+   INTRO
+======================================== */
+
+.lanyard-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 130px;
+    gap: 35px;
+    padding: 25px 0;
+    border-bottom: 1px solid #d9c9cd;
+}
+
+.lanyard-intro p {
+    max-width: 680px;
+    margin: 0;
+    color: #675b61;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.lanyard-intro span {
+    color: #95848b;
+    font-size: 8px;
+    letter-spacing: 2.5px;
+    line-height: 1.7;
+    text-align: right;
+}
+
+/* ========================================
+   EXPERIENCE
+======================================== */
+
+.lanyard-experiences {
+    padding-top: 4px;
+}
+
+.lanyard-experience {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr) 55px;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 19px 0;
+    border-bottom: 1px solid #e1d5d8;
+}
+
+.lanyard-experience-number {
+    padding-top: 4px;
+    color: #c44372;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.lanyard-experience-body span {
+    display: block;
+    margin-bottom: 5px;
+    color: #c44372;
+    font-size: 8px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.lanyard-experience-body h2 {
+    margin: 0;
+    color: #322b2f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.lanyard-experience-body p {
+    max-width: 700px;
+    margin: 7px 0 0;
+    color: #766970;
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.lanyard-experience-year {
+    padding-top: 4px;
+    color: #95848b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: right;
+}
+
+/* ========================================
+   NOTE
+======================================== */
+
+.lanyard-note {
+    position: relative;
+    width: 94%;
+    margin: 22px auto 0;
+    padding: 16px 20px;
+    background: #f5e9df;
+    transform: rotate(1deg);
+    box-shadow: 0 8px 18px rgba(40, 25, 30, 0.07);
+}
+
+.lanyard-note span {
+    display: block;
+    margin-bottom: 6px;
+    color: #c44372;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.lanyard-note p {
+    margin: 0;
+    color: #71636a;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.lanyard-note strong {
+    display: block;
+    margin-top: 5px;
+    color: #8a777f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+    font-weight: 400;
+    text-align: right;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.lanyard-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid #d9c9cd;
+}
+
+.lanyard-footer span {
+    color: #95848b;
+    font-size: 7px;
+    letter-spacing: 2.5px;
+}
+
+/* ========================================
+   RESPONSIVE 1100PX
+======================================== */
+
+@media (max-width: 1100px) {
+    .lanyard-window {
+        width: 94vw;
+        padding: 40px;
+    }
+
+    .lanyard-layout {
+        grid-template-columns: 290px minmax(0, 1fr);
+        gap: 38px;
+    }
+
+    .lanyard-visual {
+        padding-right: 30px;
+    }
+
+    .lanyard-card-holder {
+        width: 255px;
+    }
+
+    .lanyard-header h1 {
+        font-size: 60px;
+    }
+
+    .lanyard-experience-body h2 {
+        font-size: 20px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE 850PX
+======================================== */
+
+@media (max-width: 850px) {
+    .lanyard-overlay {
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .lanyard-window {
+        width: 100%;
+        min-height: auto;
+        padding: 38px 28px 30px;
+    }
+
+    .lanyard-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .lanyard-visual {
+        min-height: 500px;
+        padding: 15px 0 30px;
+        border-right: 0;
+        border-bottom: 1px solid #d9c9cd;
+    }
+
+    .lanyard-hanger {
+        height: 350px;
+    }
+
+    .lanyard-card-holder {
+        top: 115px;
+        width: 230px;
+    }
+
+    .lanyard-visual-caption {
+        bottom: 5px;
+    }
+
+    .lanyard-content {
+        padding: 0;
+    }
+
+    .lanyard-header h1 {
+        font-size: 52px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE 600PX
+======================================== */
+
+@media (max-width: 600px) {
+    .lanyard-window {
+        padding: 35px 20px 25px;
+    }
+
+    .lanyard-close {
+        top: 10px;
+        right: 10px;
+    }
+
+    .lanyard-header {
+        gap: 15px;
+    }
+
+    .lanyard-header h1 {
+        font-size: 43px;
+        letter-spacing: -2px;
+    }
+
+    .lanyard-date {
+        font-size: 10px;
+    }
+
+    .lanyard-intro {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .lanyard-intro span {
+        text-align: left;
+    }
+
+    .lanyard-experience {
+        grid-template-columns: 25px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .lanyard-experience-year {
+        display: none;
+    }
+
+    .lanyard-experience-body h2 {
+        font-size: 19px;
+    }
+
+    .lanyard-experience-body p {
+        font-size: 10px;
+    }
+
+    .lanyard-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .lanyard-close {
+        transition: none;
+    }
+}

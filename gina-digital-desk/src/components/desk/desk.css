@@ -254,9 +254,9 @@ PHONE + CONTACT CARD
 ======================================== */
 
 .desk-lanyard {
-    top: 24%;
-    left: 29%;
-    width: 7%;
+    top: 10%;
+    left: 26%;
+    width: 18%;
     z-index: 18;
 }
 
