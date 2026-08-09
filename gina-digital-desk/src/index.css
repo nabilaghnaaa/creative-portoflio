@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "./components/desk/desk.css";
+@import "./components/albums/albums.css";
+@import "./components/common/common.css";
+@import "./components/overlays/overlays.css";
+@import "./components/intro/intro.css";
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+    background: #f8e7ef;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}

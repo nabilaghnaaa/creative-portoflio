@@ -1,0 +1,146 @@
+/* ========================================
+   SCENE OVERLAY
+======================================== */
+
+.scene-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: rgba(28, 20, 24, 0.38);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    overflow-y: auto;
+}
+
+/* ========================================
+   OVERLAY CONTENT
+======================================== */
+
+.scene-overlay > .travel-album {
+    width: min(1080px, 92vw);
+    max-height: 92vh;
+    overflow-y: auto;
+}
+
+/* ========================================
+   CLOSE BUTTON
+======================================== */
+
+.album-close {
+    position: absolute;
+    top: 22px;
+    right: 25px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    background: transparent;
+    color: #332b2f;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 20;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.album-close:hover {
+    transform: rotate(90deg);
+    opacity: 0.55;
+}
+
+.album-close:focus {
+    outline: none;
+}
+
+.album-close:focus-visible {
+    outline: 2px solid #b8496f;
+    outline-offset: 4px;
+}
+
+/* ========================================
+   OVERLAY SCROLLBAR
+======================================== */
+
+.scene-overlay::-webkit-scrollbar {
+    width: 7px;
+}
+
+.scene-overlay::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scene-overlay::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(100, 75, 85, 0.25);
+}
+
+.scene-overlay::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 75, 85, 0.4);
+}
+
+/* ========================================
+   ALBUM SCROLLBAR
+======================================== */
+
+.scene-overlay .travel-album::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scene-overlay .travel-album::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scene-overlay .travel-album::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(100, 75, 85, 0.18);
+}
+
+/* ========================================
+   OVERLAY TRANSITION
+======================================== */
+
+.scene-overlay > * {
+    transform-origin: center center;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+    .scene-overlay {
+        align-items: flex-start;
+        padding: 20px 12px;
+    }
+
+    .scene-overlay > .travel-album {
+        width: 96vw;
+        max-height: none;
+        min-height: calc(100vh - 40px);
+    }
+
+    .album-close {
+        top: 15px;
+        right: 15px;
+        width: 34px;
+        height: 34px;
+        font-size: 24px;
+    }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .scene-overlay {
+        scroll-behavior: auto;
+    }
+
+    .album-close {
+        transition: none;
+    }
+}

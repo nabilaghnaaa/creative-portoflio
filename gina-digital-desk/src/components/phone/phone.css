@@ -1,0 +1,581 @@
+/* =========================================================
+   PHONE OVERLAY
+========================================================= */
+
+.phone-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: rgba(34, 25, 30, 0.42);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    overflow: hidden;
+}
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.phone-overlay-close {
+    position: fixed;
+    top: 24px;
+    right: 28px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: transparent;
+    color: #30272b;
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 50;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.phone-overlay-close:hover {
+    transform: rotate(90deg);
+    opacity: 0.55;
+}
+
+.phone-overlay-close:focus {
+    outline: none;
+}
+
+.phone-overlay-close:focus-visible {
+    outline: 2px solid #c44372;
+    outline-offset: 4px;
+}
+
+/* =========================================================
+   PHONE SCENE
+========================================================= */
+
+.phone-scene {
+    position: relative;
+    width: min(760px, 90vw);
+    height: min(700px, 88vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================================
+   CONTACT CARD
+========================================================= */
+
+.phone-card {
+    position: absolute;
+    left: -20%;
+    top: -10%;
+    width: 800px;
+    z-index: 2;
+    transform-origin: center center;
+    filter: drop-shadow(0 20px 28px rgba(45, 25, 32, 0.24));
+}
+
+.phone-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* =========================================================
+   PHONE DEVICE
+========================================================= */
+
+.phone-device {
+    position: absolute;
+    right: -20%;
+    top: 6%;
+    width: 300px;
+    z-index: 3;
+    transform-origin: center center;
+    filter: drop-shadow(0 25px 35px rgba(40, 25, 30, 0.3));
+}
+
+/* =========================================================
+   PHONE SCREEN
+========================================================= */
+
+.phone-screen {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 0.48;
+    overflow: hidden;
+    border-radius: 42px;
+    background: linear-gradient(155deg, #ead9df 0%, #d7bbc5 45%, #b88f9d 100%);
+    box-shadow: inset 0 0 0 7px #171417, inset 0 0 0 9px #30282d, 0 20px 40px rgba(30, 20, 25, 0.25);
+}
+
+/* =========================================================
+   STATUS BAR
+========================================================= */
+
+.phone-status-bar {
+    position: absolute;
+    top: 15px;
+    left: 23px;
+    right: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #30282c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    z-index: 10;
+}
+
+/* =========================================================
+   DISPLAY
+========================================================= */
+
+.phone-display {
+    position: absolute;
+    top: 55px;
+    left: 25px;
+    right: 25px;
+    height: 145px;
+    min-height: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 22px;
+    text-align: center;
+}
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.phone-number-display {
+    width: 100%;
+    color: #30282c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* =========================================================
+   CALLING / CONNECTED
+========================================================= */
+
+.phone-calling {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    color: #30282c;
+}
+
+.phone-avatar {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #c44372;
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    box-shadow: 0 8px 18px rgba(196, 67, 114, 0.25);
+}
+
+.phone-calling strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.phone-calling small {
+    color: #725d65;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   CALLING ANIMATION
+========================================================= */
+
+.phone-call-animation {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 20px;
+    margin-top: 4px;
+}
+
+.phone-call-animation span {
+    width: 4px;
+    height: 7px;
+    border-radius: 4px;
+    background: #c44372;
+    animation: phoneCallWave 0.8s infinite ease-in-out;
+}
+
+.phone-call-animation span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.phone-call-animation span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes phoneCallWave {
+    0%, 100% {
+        height: 7px;
+        opacity: 0.35;
+    }
+    50% {
+        height: 18px;
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   SPEAKING ANIMATION
+========================================================= */
+
+.phone-speaking {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 25px;
+    margin-top: 5px;
+}
+
+.phone-speaking span {
+    width: 4px;
+    border-radius: 4px;
+    background: #c44372;
+    animation: phoneSpeaking 0.7s infinite ease-in-out;
+}
+
+.phone-speaking span:nth-child(1) {
+    height: 9px;
+    animation-delay: 0s;
+}
+
+.phone-speaking span:nth-child(2) {
+    height: 16px;
+    animation-delay: 0.1s;
+}
+
+.phone-speaking span:nth-child(3) {
+    height: 23px;
+    animation-delay: 0.2s;
+}
+
+.phone-speaking span:nth-child(4) {
+    height: 16px;
+    animation-delay: 0.3s;
+}
+
+.phone-speaking span:nth-child(5) {
+    height: 9px;
+    animation-delay: 0.4s;
+}
+
+@keyframes phoneSpeaking {
+    0%, 100% {
+        transform: scaleY(0.65);
+    }
+    50% {
+        transform: scaleY(1.15);
+    }
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.phone-error {
+    position: absolute;
+    bottom: -5px;
+    color: #b43e67;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   KEYPAD
+========================================================= */
+
+.phone-keypad {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 125px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+}
+
+.phone-keypad button {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.38);
+    color: #30282c;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.phone-keypad button:hover {
+    background: rgba(255, 255, 255, 0.65);
+    transform: scale(1.06);
+}
+
+.phone-keypad button:active {
+    transform: scale(0.92);
+}
+
+.phone-keypad strong {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.phone-keypad small {
+    margin-top: 2px;
+    color: #76636b;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 6px;
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.phone-actions {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.phone-delete {
+    border: none;
+    background: transparent;
+    color: #76636b;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.phone-delete:hover {
+    color: #c44372;
+}
+
+/* =========================================================
+   CALL BUTTON
+========================================================= */
+
+.phone-call {
+    width: 51px;
+    height: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 32px;
+    border: none;
+    border-radius: 50%;
+    background: #c44372;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(196, 67, 114, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.phone-call:hover {
+    transform: scale(1.08);
+    box-shadow: 0 11px 24px rgba(196, 67, 114, 0.4);
+}
+
+.phone-call:active {
+    transform: scale(0.94);
+}
+
+/* =========================================================
+   ACTIVE CALL
+========================================================= */
+
+.phone-active-call {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+/* =========================================================
+   HANG UP
+========================================================= */
+
+.phone-hangup {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(48, 40, 44, 0.85);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.phone-hangup:hover {
+    transform: translateY(-2px);
+    background: rgba(196, 67, 114, 0.95);
+}
+
+.phone-hangup span {
+    color: #ef789d;
+    font-size: 8px;
+}
+
+/* =========================================================
+   HOME INDICATOR
+========================================================= */
+
+.phone-home-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 17px;
+    width: 72px;
+    height: 4px;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    background: rgba(48, 40, 44, 0.75);
+}
+
+/* =========================================================
+   HINT
+========================================================= */
+
+.phone-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    color: #75666d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+    .phone-scene {
+        width: min(680px, 94vw);
+        height: 650px;
+    }
+    .phone-card {
+        left: 1%;
+        top: 22%;
+        width: 290px;
+    }
+    .phone-device {
+        right: 5%;
+        top: 8%;
+        width: 215px;
+    }
+}
+
+@media (max-width: 700px) {
+    .phone-overlay {
+        padding: 20px;
+    }
+    .phone-scene {
+        width: 100%;
+        height: 620px;
+    }
+    .phone-card {
+        left: 0;
+        top: 25%;
+        width: 245px;
+    }
+    .phone-device {
+        right: 0;
+        top: 10%;
+        width: 190px;
+    }
+    .phone-hint {
+        bottom: 5px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .phone-scene {
+        transform: scale(0.82);
+    }
+    .phone-card {
+        left: -8%;
+        top: 27%;
+        width: 225px;
+    }
+    .phone-device {
+        right: -5%;
+        top: 11%;
+        width: 180px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .phone-call-animation span,
+    .phone-speaking span {
+        animation: none;
+    }
+    .phone-overlay-close,
+    .phone-keypad button,
+    .phone-call,
+    .phone-hangup {
+        transition: none;
+    }
+}

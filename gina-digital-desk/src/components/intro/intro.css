@@ -1,0 +1,298 @@
+/* ========================================
+   INTRO SCREEN
+======================================== */
+
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #f8e7ef;
+    color: #282326;
+}
+
+.intro-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+}
+
+.intro-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(248, 231, 239, 0.28);
+}
+
+/* ========================================
+   INTRO CONTENT
+======================================== */
+
+.intro-content {
+    position: relative;
+    z-index: 2;
+    width: min(900px, 90vw);
+    text-align: center;
+}
+
+.intro-kicker {
+    display: block;
+    margin-bottom: 18px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #b8496f;
+}
+
+.intro-title {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(70px, 10vw, 130px);
+    font-weight: 400;
+    line-height: 0.82;
+    letter-spacing: -7px;
+    color: #282326;
+}
+
+.intro-title span {
+    font-style: italic;
+}
+
+.intro-description {
+    max-width: 500px;
+    margin: 28px auto 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #6e6066;
+}
+
+/* ========================================
+   ENTER BUTTON
+======================================== */
+
+.intro-enter {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 35px;
+    padding: 10px 0 7px;
+    border: none;
+    border-bottom: 1px solid #b8496f;
+    background: transparent;
+    color: #b8496f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.intro-enter:hover {
+    opacity: 0.65;
+    transform: translateX(5px);
+}
+
+.intro-enter:focus {
+    outline: none;
+}
+
+.intro-enter:focus-visible {
+    outline: 2px solid #b8496f;
+    outline-offset: 5px;
+}
+
+/* ========================================
+   INTRO DECORATION
+======================================== */
+
+.intro-decoration {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.intro-decoration-left {
+    left: 7%;
+    bottom: 8%;
+    width: 120px;
+    transform: rotate(-8deg);
+}
+
+.intro-decoration-right {
+    right: 7%;
+    top: 10%;
+    width: 130px;
+    transform: rotate(7deg);
+}
+
+/* ========================================
+   SMALL NOTE
+======================================== */
+
+.intro-note {
+    position: absolute;
+    right: 8%;
+    bottom: 8%;
+    z-index: 3;
+    width: 180px;
+    padding: 16px 18px;
+    background: #f4df87;
+    box-shadow: 0 8px 18px rgba(60, 45, 30, 0.12);
+    text-align: left;
+    transform: rotate(3deg);
+}
+
+.intro-note span {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #806e39;
+}
+
+.intro-note p {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #54482d;
+}
+
+/* ========================================
+   INTRO FOOTER
+======================================== */
+
+.intro-footer {
+    position: absolute;
+    right: 35px;
+    bottom: 25px;
+    left: 35px;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid rgba(143, 123, 130, 0.35);
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #95848b;
+}
+
+/* ========================================
+   LOADING / PRELOADER
+======================================== */
+
+.intro-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f8e7ef;
+}
+
+.intro-loading-text {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-style: italic;
+    color: #8f7b82;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+    .intro-title {
+        font-size: clamp(60px, 11vw, 100px);
+    }
+
+    .intro-description {
+        max-width: 450px;
+        font-size: 14px;
+    }
+
+    .intro-decoration-left {
+        left: 3%;
+        width: 90px;
+    }
+
+    .intro-decoration-right {
+        right: 3%;
+        width: 100px;
+    }
+
+    .intro-note {
+        right: 4%;
+        bottom: 7%;
+    }
+}
+
+@media (max-width: 600px) {
+    .intro-content {
+        width: 88vw;
+    }
+
+    .intro-title {
+        font-size: clamp(52px, 16vw, 80px);
+        letter-spacing: -4px;
+    }
+
+    .intro-kicker {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .intro-description {
+        margin-top: 22px;
+        font-size: 13px;
+    }
+
+    .intro-enter {
+        margin-top: 28px;
+        font-size: 13px;
+    }
+
+    .intro-decoration-left,
+    .intro-decoration-right {
+        display: none;
+    }
+
+    .intro-note {
+        right: auto;
+        bottom: 70px;
+        left: 50%;
+        width: 160px;
+        transform: translateX(-50%) rotate(2deg);
+    }
+
+    .intro-footer {
+        right: 18px;
+        bottom: 15px;
+        left: 18px;
+        font-size: 7px;
+    }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .intro-enter,
+    .intro-note,
+    .intro-decoration-left,
+    .intro-decoration-right {
+        transition: none;
+    }
+}
