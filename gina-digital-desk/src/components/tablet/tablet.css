@@ -1,0 +1,769 @@
+/* =========================================================
+   TABLET DESK OBJECT
+   ========================================================= */
+
+.desk-tablet-group {
+    position: absolute;
+    inset: 0;
+    z-index: 22;
+    pointer-events: none;
+}
+
+.desk-tablet,
+.desk-stylus {
+    position: absolute;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.desk-tablet {
+    left: 14%;
+    bottom: 18%;
+    width: 18%;
+    z-index: 22;
+}
+
+.desk-stylus {
+    left: 11%;
+    bottom: 3%;
+    width: 7%;
+    z-index: 24;
+}
+
+.desk-tablet img,
+.desk-stylus img {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+.desk-object-label {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 12px);
+    width: max-content;
+    padding: 8px 13px;
+    border: 1px solid rgba(91, 62, 71, 0.14);
+    background: rgba(255, 250, 247, 0.97);
+    color: #704c59;
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 7px);
+    transition: all 0.22s ease;
+    box-shadow: 0 9px 22px rgba(60, 40, 45, 0.13);
+}
+
+.desk-tablet:hover .desk-object-label {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.tablet-screen-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    overflow-y: auto;
+    background: rgba(42, 31, 35, 0.78);
+    backdrop-filter: blur(16px);
+}
+
+/* =========================================================
+   WINDOW
+   ========================================================= */
+
+.tablet-screen-window {
+    position: relative;
+    width: min(1240px, 95vw);
+    max-height: 93vh;
+    overflow-y: auto;
+    padding: 62px 70px 36px;
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(176, 106, 128, 0.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 0% 100%,
+            rgba(207, 169, 151, 0.10),
+            transparent 30%
+        ),
+        #fdf9f6;
+    border: 1px solid rgba(81, 59, 66, 0.14);
+    box-shadow:
+        0 45px 100px rgba(27, 19, 22, 0.43),
+        0 8px 25px rgba(27, 19, 22, 0.13);
+}
+
+.tablet-screen-window::-webkit-scrollbar {
+    width: 5px;
+}
+
+.tablet-screen-window::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tablet-screen-window::-webkit-scrollbar-thumb {
+    background: #b8788b;
+    border-radius: 20px;
+}
+
+/* =========================================================
+   CLOSE
+   ========================================================= */
+
+.tablet-screen-close {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 1px solid rgba(74, 52, 59, 0.16);
+    border-radius: 50%;
+    background: rgba(255, 252, 249, 0.94);
+    color: #544047;
+    font-family: Georgia, serif;
+    font-size: 23px;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.tablet-screen-close:hover {
+    background: #49373f;
+    color: #fff;
+    transform: rotate(90deg) scale(1.05);
+}
+
+/* =========================================================
+   TAPE
+   ========================================================= */
+
+.tablet-screen-tape {
+    position: absolute;
+    width: 92px;
+    height: 22px;
+    background: rgba(213, 176, 158, 0.40);
+    pointer-events: none;
+}
+
+.tablet-screen-tape-one {
+    top: 16px;
+    left: 120px;
+    transform: rotate(-3deg);
+}
+
+.tablet-screen-tape-two {
+    top: 17px;
+    right: 145px;
+    transform: rotate(4deg);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.tablet-screen-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 50px;
+}
+
+.tablet-screen-heading {
+    max-width: 760px;
+}
+
+.tablet-screen-kicker {
+    display: inline-block;
+    color: #a25870;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.tablet-screen-heading h1 {
+    margin: 17px 0 21px;
+    color: #30262b;
+    font-size: clamp(68px, 7vw, 98px);
+    font-weight: 400;
+    letter-spacing: -5px;
+    line-height: 0.80;
+}
+
+.tablet-screen-heading h1 em {
+    color: #a45f73;
+    font-family: Georgia, serif;
+    font-style: italic;
+    letter-spacing: -3px;
+}
+
+.tablet-screen-heading p {
+    max-width: 580px;
+    margin: 0;
+    color: #75666c;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+/* =========================================================
+   INDEX
+   ========================================================= */
+
+.tablet-screen-index {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 120px;
+    padding-bottom: 9px;
+}
+
+.tablet-screen-index span {
+    color: #a45f73;
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+.tablet-screen-index strong {
+    margin: 2px 0;
+    color: #34292e;
+    font-family: Georgia, serif;
+    font-size: 55px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.tablet-screen-index small {
+    color: #9b898f;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    letter-spacing: 1.2px;
+}
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.tablet-screen-divider {
+    position: relative;
+    height: 1px;
+    margin: 39px 0 32px;
+    background: rgba(82, 60, 67, 0.15);
+}
+
+.tablet-screen-divider::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 50px;
+    height: 5px;
+    background: #a45f73;
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.tablet-screen-intro {
+    display: grid;
+    grid-template-columns: 48px 1fr minmax(300px, 420px);
+    align-items: center;
+    gap: 28px;
+    padding: 10px 0 34px;
+}
+
+.tablet-screen-intro-number {
+    color: #a45f73;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.tablet-screen-intro-title span {
+    color: #a25870;
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+.tablet-screen-intro-title h2 {
+    margin: 9px 0 0;
+    color: #372c31;
+    font-size: 37px;
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 0.94;
+}
+
+.tablet-screen-intro-title h2 em {
+    color: #a45f73;
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+.tablet-screen-intro > p {
+    margin: 0;
+    color: #78686e;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+.tablet-screen-filter {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    margin-bottom: 34px;
+    padding: 0 0 12px;
+    border-bottom: 1px solid rgba(86, 62, 69, 0.11);
+}
+
+.tablet-filter-label {
+    color: #a25870;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    letter-spacing: 2.5px;
+}
+
+.tablet-filter-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 0 11px;
+    border: 0;
+    background: transparent;
+    color: #89777d;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.9px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.tablet-filter-button::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    height: 2px;
+    background: #a45f73;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+
+.tablet-filter-button:hover {
+    color: #a45f73;
+}
+
+.tablet-filter-button:hover::after {
+    transform: scaleX(0.45);
+}
+
+.tablet-filter-button span {
+    color: #b19ca3;
+    font-size: 8px;
+}
+
+.tablet-filter-active {
+    color: #a45f73;
+}
+
+.tablet-filter-active::after {
+    transform: scaleX(1);
+}
+
+.tablet-filter-active span {
+    color: #a45f73;
+}
+
+/* =========================================================
+   WORK GRID
+   ========================================================= */
+
+.tablet-work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 25px;
+    row-gap: 43px;
+}
+
+/* =========================================================
+   WORK CARD
+   ========================================================= */
+
+.tablet-work-card {
+    position: relative;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.tablet-work-image {
+    position: relative;
+    aspect-ratio: 1.20 / 1;
+    overflow: hidden;
+    background: #e9dfdc;
+    box-shadow: 0 10px 24px rgba(64, 43, 50, 0.08);
+}
+
+.tablet-work-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    pointer-events: none;
+}
+
+.tablet-work-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: linear-gradient(
+        180deg,
+        rgba(36, 24, 29, 0) 35%,
+        rgba(36, 24, 29, 0.55) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.tablet-work-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.35s ease;
+}
+
+.tablet-work-card:hover .tablet-work-image img {
+    transform: scale(1.065);
+    filter: saturate(0.95);
+}
+
+.tablet-work-card:hover .tablet-work-image::after {
+    opacity: 1;
+}
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.tablet-work-number {
+    position: absolute;
+    top: 15px;
+    left: 16px;
+    z-index: 5;
+    color: rgba(255, 255, 255, 0.95);
+    font-family: Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================================================
+   HOVER CONTENT
+   ========================================================= */
+
+.tablet-work-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 19px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(7px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.tablet-work-card:hover .tablet-work-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tablet-work-overlay span {
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.tablet-work-overlay strong {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 50%;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+/* =========================================================
+   CARD INFO
+   ========================================================= */
+
+.tablet-work-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-top: 15px;
+}
+
+.tablet-work-info span {
+    color: #a25870;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    letter-spacing: 1.9px;
+}
+
+.tablet-work-info h3 {
+    margin: 7px 0 0;
+    color: #382d32;
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.05;
+}
+
+.tablet-work-info strong {
+    padding-top: 3px;
+    color: #9b8b91;
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.tablet-work-card > p {
+    max-width: 340px;
+    margin: 9px 0 0;
+    color: #86757b;
+    font-family: Georgia, serif;
+    font-size: 11px;
+    line-height: 1.65;
+}
+
+/* =========================================================
+   NOTE
+   ========================================================= */
+
+.tablet-screen-note {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: min(760px, 100%);
+    margin: 55px auto 0;
+    padding: 20px 25px;
+    background: #f0e1dd;
+    box-shadow: 0 10px 24px rgba(71, 48, 55, 0.09);
+    transform: rotate(-0.6deg);
+}
+
+.tablet-screen-note::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    width: 82px;
+    height: 15px;
+    background: rgba(210, 176, 160, 0.45);
+    transform: translateX(-50%) rotate(-2deg);
+}
+
+.tablet-note-symbol {
+    color: #a45f73;
+    font-size: 22px;
+}
+
+.tablet-screen-note span {
+    color: #a25870;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    letter-spacing: 2.2px;
+}
+
+.tablet-screen-note p {
+    max-width: 570px;
+    margin: 6px 0 0;
+    color: #59474e;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.tablet-screen-note > strong {
+    margin-left: auto;
+    color: #9b6d78;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.tablet-screen-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    margin-top: 32px;
+    padding-top: 17px;
+    border-top: 1px solid rgba(86, 62, 69, 0.11);
+    color: #9c8c92;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+    .tablet-screen-window {
+        padding: 55px 45px 32px;
+    }
+
+    .tablet-screen-heading h1 {
+        font-size: 72px;
+    }
+
+    .tablet-screen-intro {
+        grid-template-columns: 45px 1fr;
+    }
+
+    .tablet-screen-intro > p {
+        grid-column: 2;
+    }
+
+    .tablet-work-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .tablet-screen-overlay {
+        align-items: flex-start;
+        padding: 12px;
+    }
+
+    .tablet-screen-window {
+        width: 96vw;
+        max-height: 95vh;
+        padding: 48px 22px 24px;
+    }
+
+    .tablet-screen-header {
+        grid-template-columns: 1fr;
+    }
+
+    .tablet-screen-index {
+        display: none;
+    }
+
+    .tablet-screen-heading h1 {
+        font-size: 58px;
+        letter-spacing: -3px;
+    }
+
+    .tablet-screen-heading p {
+        font-size: 12px;
+    }
+
+    .tablet-screen-intro {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .tablet-screen-intro > p {
+        grid-column: auto;
+    }
+
+    .tablet-screen-intro-title h2 {
+        font-size: 31px;
+    }
+
+    .tablet-screen-filter {
+        gap: 18px;
+        overflow-x: auto;
+    }
+
+    .tablet-filter-button {
+        flex-shrink: 0;
+    }
+
+    .tablet-work-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .tablet-work-info h3 {
+        font-size: 21px;
+    }
+
+    .tablet-screen-note {
+        align-items: flex-start;
+    }
+
+    .tablet-screen-note > strong {
+        display: none;
+    }
+
+    .tablet-screen-footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

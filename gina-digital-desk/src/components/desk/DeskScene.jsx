@@ -10,6 +10,7 @@ import Polaroid from "./Polaroid";
 import Cv from "../cv/Cv";
 import Coffee from "../coffee/Coffee";
 import Book from "./Book";
+import Tablet from "./Tablet";
 
 export default function DeskScene() {
     return (
@@ -26,6 +27,7 @@ export default function DeskScene() {
             <Headphone />
             <Book />
             <Polaroid />
+            <Tablet />
         </section>
     );
 }

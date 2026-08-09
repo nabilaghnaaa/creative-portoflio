@@ -15,6 +15,7 @@ import LanyardScreen from "../lanyard/LanyardScreen";
 import FlowerScreen from "../flower/FlowerScreen";
 import BookScreen from "../book/BookScreen";
 import PolaroidScreen from "../polaroid/PolaroidScreen";
+import TabletScreen from "../tablet/TabletScreen";
 
 export default function SceneOverlay() {
     const { activeObject, closeObject } = useDesk();
@@ -296,6 +297,14 @@ export default function SceneOverlay() {
                         <CoffeeScreen
                             onClose={handleClose}
                         />
+                    )}
+
+                    {/* ========================================
+                        TABLET
+                    ======================================== */}
+
+                    {activeObject === "tablet" && (
+                        <TabletScreen onClose={closeObject} />
                     )}
 
                     {/* ========================================
