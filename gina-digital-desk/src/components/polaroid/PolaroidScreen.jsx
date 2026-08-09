@@ -92,9 +92,7 @@ export default function PolaroidScreen({ onClose }) {
                     <div className="polaroid-header-main">
                         <span className="polaroid-kicker">06 / SOCIAL ARCHIVE</span>
                         <h1>
-                            people,
-                            <br />
-                            <em>places & memories.</em>
+                            people, <em>places & memories.</em>
                         </h1>
                         <p>
                             A little collection of the people, projects,

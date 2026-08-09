@@ -125,9 +125,7 @@ export default function TabletScreen({ onClose }) {
                         </span>
 
                         <h1>
-                            things I
-                            <br />
-                            <em>make visually.</em>
+                            things I <em>make visually.</em>
                         </h1>
 
                         <p>
