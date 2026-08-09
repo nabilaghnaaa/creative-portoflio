@@ -30,7 +30,7 @@ export default function Coffee() {
                 draggable="false"
             />
 
-            <span className="coffee-object-label">
+            <span className="desk-object-label">
                 coffee break
             </span>
         </motion.button>

@@ -78,6 +78,11 @@
     z-index: 20;
 }
 
+.desk-camera .desk-object-label {
+    top: calc(20% + 12px);
+    bottom: auto;
+}
+
 /* ========================================
    MAP
 ======================================== */
@@ -98,6 +103,11 @@
     left: 34%;
     width: 28%;
     z-index: 20;
+}
+
+.desk-laptop .desk-object-label {
+    top: calc(12% + 12px);
+    bottom: auto;
 }
 
 /* ========================================
@@ -307,34 +317,56 @@ PHONE + CONTACT CARD
 }
 
 /* ========================================
-   OBJECT LABEL
+OBJECT LABEL
 ======================================== */
 
 .desk-object-label {
     position: absolute;
     left: 50%;
-    bottom: calc(100% + 10px);
+    bottom: calc(80% + 12px);
     z-index: 150;
     width: max-content;
     max-width: 180px;
-    padding: 7px 10px;
-    border-radius: 2px;
-    background: rgba(40, 35, 38, 0.92);
-    color: #fff;
+    padding: 8px 13px;
+    border: 1px solid rgba(125, 105, 113, 0.28);
+    background: #faf5ef;
+    color: #62565c;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 10px;
-    line-height: 1.4;
+    font-size: 11px;
+    line-height: 1.2;
+    white-space: nowrap;
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50%, 5px);
-    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    transform: translate(-50%, 8px) rotate(-2deg);
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+    box-shadow: 0 5px 15px rgba(40, 25, 30, 0.08);
+}
+
+.desk-object-label::before {
+    content: "✦";
+    margin-right: 5px;
+    color: #c44372;
+    font-size: 9px;
+}
+
+.desk-object-label::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 8px;
+    height: 8px;
+    background: #faf5ef;
+    border-right: 1px solid rgba(125, 105, 113, 0.28);
+    border-bottom: 1px solid rgba(125, 105, 113, 0.28);
+    transform: translateX(-50%) rotate(45deg);
 }
 
 .desk-object:hover .desk-object-label {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 0) rotate(-2deg);
 }
 
 /* ========================================

@@ -9,6 +9,7 @@ export default function Laptop() {
             src="/assets/desk/laptop.webp"
             alt="Explore my projects"
             className="desk-laptop"
+            label="my projects"
             onClick={() => openObject("laptop")}
         />
     );

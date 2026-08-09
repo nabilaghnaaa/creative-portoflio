@@ -10,6 +10,7 @@ export default function Camera() {
             alt="Explore my travels"
             className="desk-camera"
             rotate={-8}
+            label="travel diary"
             onClick={() => openObject("camera")}
         />
     );

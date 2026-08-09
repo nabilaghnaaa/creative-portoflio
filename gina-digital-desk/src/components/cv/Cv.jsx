@@ -27,7 +27,12 @@ export default function Cv() {
             <img
                 src="/assets/cv/cv.webp"
                 alt="CV"
+                draggable="false"
             />
+
+            <span className="desk-object-label">
+                my resume
+            </span>
         </motion.button>
     );
 }

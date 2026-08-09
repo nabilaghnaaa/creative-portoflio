@@ -10,6 +10,7 @@ export default function Map() {
             alt="Explore my certificates"
             className="desk-map"
             rotate={15}
+            label="certificate archive"
             onClick={() => openObject("map")}
         />
     );

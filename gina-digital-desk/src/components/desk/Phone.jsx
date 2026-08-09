@@ -28,13 +28,19 @@ export default function Phone() {
                 className="desk-phone-card"
                 src="/assets/phone/call-card.webp"
                 alt="Gina contact card"
+                draggable="false"
             />
 
             <img
                 className="desk-phone-image"
                 src="/assets/phone/phone.webp"
                 alt="Phone"
+                draggable="false"
             />
+
+            <span className="desk-object-label">
+                call me
+            </span>
         </motion.button>
     );
 }
