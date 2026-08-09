@@ -204,6 +204,10 @@ PHONE + CONTACT CARD
     z-index: 19;
 }
 
+.desk-headphone .desk-object-label {
+    bottom: calc(80% + 12px);
+}
+
 /* ========================================
    COFFEE
 ======================================== */

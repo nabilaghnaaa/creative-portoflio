@@ -1,0 +1,118 @@
+.headphone-object {
+    position: absolute;
+    cursor: pointer;
+    transform-origin: center center;
+}
+
+.headphone-object img {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+.headphone-object-label {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 12px);
+    z-index: 150;
+    width: max-content;
+    max-width: 180px;
+    padding: 7px 11px;
+    border: 1px solid rgba(105, 78, 88, 0.18);
+    border-radius: 2px;
+    background: rgba(255, 248, 251, 0.95);
+    color: #5d4b52;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+    line-height: 1.3;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 6px);
+    transition: opacity 0.22s ease, visibility 0.22s ease, transform 0.22s ease;
+    box-shadow: 0 5px 14px rgba(50, 35, 42, 0.08);
+}
+
+.desk-headphone:hover .headphone-object-label {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+.headphone-playing-indicator {
+    position: absolute;
+    right: -5px;
+    bottom: 2px;
+    z-index: 10;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2px;
+    width: 18px;
+    height: 16px;
+    padding: 3px;
+    border-radius: 10px;
+    background: rgba(255, 248, 251, 0.95);
+    box-shadow: 0 4px 10px rgba(50, 35, 42, 0.14);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.7);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+}
+
+.headphone-playing-indicator i {
+    display: block;
+    width: 2px;
+    height: 5px;
+    border-radius: 2px;
+    background: #b8496f;
+}
+
+.desk-headphone.is-playing .headphone-playing-indicator {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.desk-headphone.is-playing .headphone-playing-indicator i:nth-child(1) {
+    animation: headphone-wave 0.8s ease-in-out infinite;
+}
+
+.desk-headphone.is-playing .headphone-playing-indicator i:nth-child(2) {
+    height: 8px;
+    animation: headphone-wave 0.65s ease-in-out infinite 0.1s;
+}
+
+.desk-headphone.is-playing .headphone-playing-indicator i:nth-child(3) {
+    height: 6px;
+    animation: headphone-wave 0.75s ease-in-out infinite 0.2s;
+}
+
+@keyframes headphone-wave {
+    0%,
+    100% {
+        transform: scaleY(0.65);
+    }
+
+    50% {
+        transform: scaleY(1.35);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .headphone-object-label {
+        transition: none;
+    }
+
+    .headphone-playing-indicator {
+        transition: none;
+    }
+
+    .headphone-playing-indicator i {
+        animation: none;
+    }
+}
