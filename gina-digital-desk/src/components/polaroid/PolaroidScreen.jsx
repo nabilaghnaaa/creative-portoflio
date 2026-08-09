@@ -117,9 +117,7 @@ export default function PolaroidScreen({ onClose }) {
                     <div className="polaroid-intro-title">
                         <span>A LITTLE SOCIAL ARCHIVE</span>
                         <h2>
-                            life feels better
-                            <br />
-                            <em>when shared.</em>
+                            life feels better <em>when shared.</em>
                         </h2>
                     </div>
 

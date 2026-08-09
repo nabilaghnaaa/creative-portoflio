@@ -491,15 +491,22 @@
 
 .phone-hint {
     position: absolute;
-    bottom: 20px;
+    bottom: 34px;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
-    color: #75666d;
+    padding: 9px 18px;
+    color: #5f4a52;
+    background: rgba(255, 244, 247, 0.78);
+    border: 1px solid rgba(164, 91, 112, 0.25);
+    border-radius: 30px;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 11px;
+    font-size: 13px;
     font-style: italic;
+    letter-spacing: 0.3px;
     white-space: nowrap;
+    box-shadow: 0 5px 16px rgba(60, 35, 45, 0.08);
+    backdrop-filter: blur(6px);
 }
 
 /* =========================================================
