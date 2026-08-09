@@ -13,6 +13,7 @@ import Book from "./Book";
 import Tablet from "./Tablet";
 import Keyboard from "./Keyboard";
 import Mouse from "./Mouse";
+import Key from "./Key";
 
 export default function DeskScene() {
     return (
@@ -32,6 +33,7 @@ export default function DeskScene() {
             <Tablet />
             <Keyboard />
             <Mouse /> 
+            <Key />
         </section>
     );
 }

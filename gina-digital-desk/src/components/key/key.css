@@ -1,0 +1,720 @@
+.key-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: rgba(38, 27, 31, 0.48);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    overflow-y: auto;
+}
+
+.key-window {
+    position: relative;
+    width: min(1180px, 100%);
+    min-height: 760px;
+    margin: auto;
+    padding: 56px 64px 28px;
+    overflow: hidden;
+    color: #34292d;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(255, 255, 255, 0.8) 0 2px, transparent 3px),
+        radial-gradient(circle at 88% 80%, rgba(166, 105, 119, 0.08) 0 1px, transparent 2px),
+        linear-gradient(135deg, #f7f0e7 0%, #f2e8dd 48%, #eee1d7 100%);
+    border: 1px solid rgba(91, 61, 67, 0.16);
+    box-shadow:
+        0 35px 90px rgba(37, 24, 28, 0.28),
+        0 8px 25px rgba(37, 24, 28, 0.12),
+        inset 0 0 80px rgba(142, 92, 105, 0.06);
+}
+
+.key-window::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    pointer-events: none;
+    border: 1px solid rgba(116, 77, 87, 0.1);
+}
+
+.key-window::after {
+    content: "";
+    position: absolute;
+    top: -90px;
+    right: -70px;
+    width: 240px;
+    height: 240px;
+    border: 1px solid rgba(154, 89, 107, 0.12);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 35px rgba(154, 89, 107, 0.025),
+        0 0 0 70px rgba(154, 89, 107, 0.02);
+    pointer-events: none;
+}
+
+.key-close {
+    position: absolute;
+    top: 23px;
+    right: 28px;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6f4b55;
+    background: rgba(255, 250, 244, 0.72);
+    border: 1px solid rgba(104, 70, 80, 0.18);
+    border-radius: 50%;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.key-close:hover {
+    color: #fff;
+    background: #a36172;
+    border-color: #a36172;
+    transform: rotate(8deg) scale(1.06);
+}
+
+.key-tape {
+    position: absolute;
+    z-index: 3;
+    width: 92px;
+    height: 24px;
+    background: rgba(201, 167, 142, 0.48);
+    box-shadow: 0 2px 6px rgba(73, 48, 53, 0.08);
+    opacity: 0.78;
+}
+
+.key-tape-one {
+    top: 20px;
+    left: 24%;
+    transform: rotate(-4deg);
+}
+
+.key-tape-two {
+    right: 22%;
+    bottom: 18px;
+    transform: rotate(5deg);
+}
+
+.key-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.key-heading {
+    max-width: 650px;
+}
+
+.key-kicker {
+    display: inline-block;
+    color: #99576b;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.key-heading h1 {
+    margin: 13px 0 17px;
+    color: #33282d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(58px, 6vw, 84px);
+    font-weight: 400;
+    letter-spacing: -3px;
+    line-height: 0.82;
+}
+
+.key-heading h1 em {
+    color: #a36172;
+    font-style: italic;
+}
+
+.key-heading p {
+    max-width: 500px;
+    margin: 0;
+    color: #725e63;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.key-index {
+    min-width: 125px;
+    padding-top: 8px;
+    text-align: right;
+}
+
+.key-index span,
+.key-index small {
+    display: block;
+    color: #a06676;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.key-index strong {
+    display: block;
+    margin: 5px 0;
+    color: #47353b;
+    font-family: Georgia, serif;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.key-divider {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 1px;
+    margin: 34px 0 28px;
+    background: rgba(98, 67, 75, 0.18);
+}
+
+.key-location-intro {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 48px minmax(300px, 1fr) minmax(250px, 0.7fr);
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.key-location-number {
+    color: #a36172;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.key-location-title > span {
+    display: block;
+    margin-bottom: 8px;
+    color: #9a596b;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.key-location-title h2 {
+    margin: 0;
+    color: #382b30;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 3vw, 36px);
+    font-weight: 400;
+    line-height: 0.98;
+}
+
+.key-location-title h2 em {
+    color: #a36172;
+    font-style: italic;
+}
+
+.key-location-intro > p {
+    margin: 0;
+    color: #725e63;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.key-map-section {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(245px, 0.7fr);
+    gap: 20px;
+}
+
+.key-map {
+    position: relative;
+    min-height: 385px;
+    overflow: hidden;
+    background: #e6ded5;
+    border: 1px solid rgba(88, 61, 67, 0.18);
+    box-shadow:
+        0 15px 30px rgba(62, 40, 45, 0.12),
+        inset 0 0 30px rgba(255, 255, 255, 0.25);
+}
+
+.key-map::before {
+    content: "YOGYAKARTA · INDONESIA";
+    position: absolute;
+    top: 15px;
+    left: 16px;
+    z-index: 500;
+    padding: 7px 10px;
+    color: #664850;
+    background: rgba(249, 242, 234, 0.88);
+    border: 1px solid rgba(101, 69, 78, 0.14);
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 12px rgba(44, 30, 34, 0.08);
+}
+
+.key-map .leaflet-container {
+    width: 100%;
+    height: 385px;
+    background: #e6ded5;
+    font-family: "Courier New", monospace;
+}
+
+.key-map .leaflet-control-zoom {
+    margin-top: 60px;
+    margin-right: 14px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(45, 30, 35, 0.12);
+}
+
+.key-map .leaflet-control-zoom a {
+    color: #60434b;
+    background: rgba(250, 244, 237, 0.92);
+    border-color: rgba(95, 65, 73, 0.14);
+}
+
+.key-map .leaflet-control-zoom a:hover {
+    color: #fff;
+    background: #a36172;
+}
+
+.key-map .leaflet-control-attribution {
+    padding: 3px 6px;
+    color: #6c5a5e;
+    background: rgba(247, 239, 231, 0.85);
+    font-size: 7px;
+}
+
+.key-map-caption {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    z-index: 500;
+    width: min(270px, 50%);
+    padding: 13px 15px;
+    background: rgba(250, 244, 237, 0.92);
+    border-left: 3px solid #a36172;
+    box-shadow: 0 8px 20px rgba(50, 34, 39, 0.12);
+}
+
+.key-map-caption span {
+    display: block;
+    margin-bottom: 4px;
+    color: #a36172;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.key-map-caption strong {
+    display: block;
+    color: #433237;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.key-location-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 385px;
+    padding: 24px;
+    background: rgba(251, 245, 238, 0.76);
+    border: 1px solid rgba(100, 68, 77, 0.15);
+    box-shadow: 0 12px 25px rgba(61, 39, 45, 0.08);
+}
+
+.key-location-card::after {
+    content: "✦";
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    color: rgba(163, 97, 114, 0.35);
+    font-size: 16px;
+}
+
+.key-card-label {
+    color: #9a596b;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.key-card-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 26px;
+    color: #66545a;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+}
+
+.key-status-dot {
+    position: relative;
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    background: #a36172;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(163, 97, 114, 0.12);
+}
+
+.key-destination {
+    padding-bottom: 20px;
+}
+
+.key-destination > span {
+    display: block;
+    margin-bottom: 8px;
+    color: #a36172;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.key-destination h3 {
+    margin: 0;
+    color: #382c31;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1.02;
+}
+
+.key-destination p {
+    margin: 13px 0 0;
+    color: #77636a;
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+.key-card-line {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 17px;
+    background: rgba(95, 65, 73, 0.15);
+}
+
+.key-card-note {
+    margin: 0;
+    color: #725e63;
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+.key-direction-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+    padding: 13px 14px;
+    color: #f8f0e8;
+    background: #574047;
+    border: 1px solid #574047;
+    cursor: pointer;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.key-direction-button strong {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.key-direction-button:hover {
+    background: #a36172;
+    border-color: #a36172;
+    box-shadow: 0 8px 20px rgba(112, 69, 82, 0.22);
+    transform: translateY(-2px);
+}
+
+.key-note {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 42px 1fr auto;
+    align-items: center;
+    gap: 15px;
+    max-width: 650px;
+    margin: 28px auto 22px;
+    padding: 15px 18px;
+    background: rgba(216, 187, 163, 0.22);
+    border: 1px dashed rgba(116, 78, 88, 0.22);
+    transform: rotate(-0.5deg);
+}
+
+.key-note-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    color: #a36172;
+    border: 1px solid rgba(163, 97, 114, 0.25);
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.key-note span {
+    display: block;
+    margin-bottom: 4px;
+    color: #9a596b;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.key-note p {
+    margin: 0;
+    color: #5f4b51;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.key-note > strong {
+    color: #8d5968;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.key-footer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 17px;
+    color: #92747c;
+    border-top: 1px solid rgba(96, 65, 74, 0.12);
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+}
+
+.key-user-marker {
+    position: relative;
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.key-marker-pulse {
+    position: absolute;
+    inset: -7px;
+    border: 1px solid rgba(163, 97, 114, 0.45);
+    border-radius: 50%;
+    animation: key-location-pulse 2s infinite;
+}
+
+.key-marker-dot {
+    position: absolute;
+    inset: 5px;
+    background: #a36172;
+    border: 2px solid #fff9f2;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(73, 45, 52, 0.25);
+}
+
+.key-umy-marker {
+    background: transparent;
+    border: none;
+}
+
+.key-umy-pin {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    color: #fff8f0;
+    background: #574047;
+    border: 3px solid #f8eee5;
+    border-radius: 50% 50% 50% 0;
+    box-shadow: 0 6px 15px rgba(50, 33, 39, 0.28);
+    transform: rotate(-45deg);
+}
+
+.key-umy-pin::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: #f8eee5;
+    border-radius: 50%;
+}
+
+.key-umy-pin span {
+    position: relative;
+    z-index: 2;
+    display: none;
+}
+
+.leaflet-marker-icon .key-umy-pin {
+    transform: rotate(-45deg);
+}
+
+@keyframes key-location-pulse {
+    0% {
+        opacity: 0.8;
+        transform: scale(0.7);
+    }
+
+    70% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+@media (max-width: 900px) {
+    .key-overlay {
+        padding: 18px;
+    }
+
+    .key-window {
+        padding: 48px 32px 24px;
+    }
+
+    .key-location-intro {
+        grid-template-columns: 38px 1fr;
+    }
+
+    .key-location-intro > p {
+        grid-column: 2;
+    }
+
+    .key-map-section {
+        grid-template-columns: 1fr;
+    }
+
+    .key-location-card {
+        min-height: 300px;
+    }
+
+    .key-direction-button {
+        margin-top: 25px;
+    }
+}
+
+@media (max-width: 620px) {
+    .key-overlay {
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .key-window {
+        width: 100%;
+        padding: 42px 20px 20px;
+    }
+
+    .key-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .key-heading h1 {
+        font-size: 55px;
+        letter-spacing: -2px;
+    }
+
+    .key-index {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 0;
+        text-align: left;
+    }
+
+    .key-index strong {
+        margin: 0;
+        font-size: 28px;
+    }
+
+    .key-index small {
+        display: none;
+    }
+
+    .key-location-intro {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .key-location-number {
+        display: none;
+    }
+
+    .key-location-intro > p {
+        grid-column: auto;
+    }
+
+    .key-map {
+        min-height: 330px;
+    }
+
+    .key-map .leaflet-container {
+        height: 330px;
+    }
+
+    .key-map-caption {
+        right: 10px;
+        bottom: 10px;
+        width: calc(100% - 20px);
+    }
+
+    .key-note {
+        grid-template-columns: 34px 1fr;
+    }
+
+    .key-note > strong {
+        display: none;
+    }
+
+    .key-footer {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+}

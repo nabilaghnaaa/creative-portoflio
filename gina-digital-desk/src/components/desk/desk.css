@@ -172,6 +172,23 @@ PHONE + CONTACT CARD
 }
 
 /* ========================================
+   KEY
+======================================== */
+
+.desk-key {
+    width: 150px !important;
+    position: relative !important;
+    left: 1400px !important;
+    top: 60%;
+}
+
+.desk-key img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ========================================
    MOUSE
 ======================================== */
 
