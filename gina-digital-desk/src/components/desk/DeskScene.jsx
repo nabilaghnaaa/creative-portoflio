@@ -6,6 +6,7 @@ import Mousepad from "./Mousepad";
 import Lanyard from "./Lanyard";
 import Flower from "./Flower";
 import Headphone from "../headphone/Headphone";
+import Polaroid from "./Polaroid";
 import Cv from "../cv/Cv";
 import Coffee from "../coffee/Coffee";
 import Book from "./Book";
@@ -24,6 +25,7 @@ export default function DeskScene() {
             <Coffee />
             <Headphone />
             <Book />
+            <Polaroid />
         </section>
     );
 }

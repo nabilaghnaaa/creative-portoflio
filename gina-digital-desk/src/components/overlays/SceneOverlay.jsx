@@ -14,6 +14,7 @@ import certificates from "../../data/certificates";
 import LanyardScreen from "../lanyard/LanyardScreen";
 import FlowerScreen from "../flower/FlowerScreen";
 import BookScreen from "../book/BookScreen";
+import PolaroidScreen from "../polaroid/PolaroidScreen";
 
 export default function SceneOverlay() {
     const { activeObject, closeObject } = useDesk();
@@ -311,6 +312,14 @@ export default function SceneOverlay() {
                             onNext={nextPhoto}
                             onPrevious={previousPhoto}
                         />
+                    )}
+
+                     {/* ========================================
+                        POLAROID PHOTO
+                    ======================================== */}
+
+                    {activeObject === "polaroid" && (
+                        <PolaroidScreen onClose={closeObject} />
                     )}
 
                     {/* ========================================
