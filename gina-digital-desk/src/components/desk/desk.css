@@ -378,6 +378,27 @@ OBJECT LABEL
 }
 
 /* ========================================
+MOUSEPAD
+======================================== */
+
+.desk-mousepad {
+    left: 5%;
+    bottom: -5%;
+    width: 90%;
+    z-index: 1;
+    cursor: default;
+    pointer-events: none;
+}
+
+.desk-mousepad img {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ========================================
    RESPONSIVE - LAPTOP / DESKTOP
 ======================================== */
 
