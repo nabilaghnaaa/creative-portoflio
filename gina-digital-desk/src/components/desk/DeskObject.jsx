@@ -6,6 +6,7 @@ export default function DeskObject({
     className = "",
     onClick,
     interactive = true,
+    hoverable = true,
     rotate = 0,
     label = ""
 }) {
@@ -18,19 +19,19 @@ export default function DeskObject({
                 rotate
             }}
             whileHover={
-                interactive
+                hoverable
                     ? {
-                          scale: 1.06,
-                          y: -6,
-                          rotate: rotate + 2
-                      }
+                        scale: 1.06,
+                        y: -6,
+                        rotate: rotate + 2
+                    }
                     : undefined
             }
             whileTap={
                 interactive
                     ? {
-                          scale: 0.97
-                      }
+                        scale: 0.97
+                    }
                     : undefined
             }
             transition={{

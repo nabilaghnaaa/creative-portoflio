@@ -11,6 +11,8 @@ import Cv from "../cv/Cv";
 import Coffee from "../coffee/Coffee";
 import Book from "./Book";
 import Tablet from "./Tablet";
+import Keyboard from "./Keyboard";
+import Mouse from "./Mouse";
 
 export default function DeskScene() {
     return (
@@ -28,6 +30,8 @@ export default function DeskScene() {
             <Book />
             <Polaroid />
             <Tablet />
+            <Keyboard />
+            <Mouse /> 
         </section>
     );
 }

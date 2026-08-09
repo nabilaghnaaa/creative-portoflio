@@ -46,7 +46,7 @@
 .desk-object-label {
     position: absolute;
     left: 50%;
-    bottom: calc(100% + 12px);
+    bottom: calc(90% + 12px);
     width: max-content;
     padding: 8px 13px;
     border: 1px solid rgba(91, 62, 71, 0.14);

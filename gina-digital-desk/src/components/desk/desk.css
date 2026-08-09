@@ -106,7 +106,7 @@
 }
 
 .desk-laptop .desk-object-label {
-    top: calc(12% + 12px);
+    top: calc(30% + 12px);
     bottom: auto;
 }
 
@@ -165,10 +165,10 @@ PHONE + CONTACT CARD
 ======================================== */
 
 .desk-keyboard {
+    position: absolute;
     left: 37%;
-    bottom: 26%;
-    width: 25%;
-    z-index: 21;
+    bottom: 35%;
+    width: 23%;
 }
 
 /* ========================================
@@ -176,10 +176,10 @@ PHONE + CONTACT CARD
 ======================================== */
 
 .desk-mouse {
-    left: 67%;
-    bottom: 18%;
-    width: 8%;
-    z-index: 22;
+    position: absolute;
+    left: 62%;
+    bottom: 23%;
+    width: 10%;
 }
 
 /* ========================================
