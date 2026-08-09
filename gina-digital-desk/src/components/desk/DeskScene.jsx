@@ -4,6 +4,7 @@ import Laptop from "./Laptop";
 import Phone from "./Phone";
 import Mousepad from "./Mousepad";
 import Lanyard from "./Lanyard";
+import Flower from "./Flower";
 import Headphone from "../headphone/Headphone";
 import Cv from "../cv/Cv";
 import Coffee from "../coffee/Coffee";
@@ -13,6 +14,7 @@ export default function DeskScene() {
         <section className="desk-scene">
             <Mousepad />
             <Lanyard />
+            <Flower />
             <Camera />
             <Map />
             <Laptop />

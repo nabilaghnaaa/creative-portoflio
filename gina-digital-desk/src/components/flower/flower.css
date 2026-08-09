@@ -1,0 +1,760 @@
+/* ========================================
+   FLOWER OVERLAY
+======================================== */
+
+.flower-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: rgba(39, 30, 34, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* ========================================
+   SCRAPBOOK
+======================================== */
+
+.flower-book {
+    position: relative;
+    width: min(1120px, 94vw);
+    max-height: 91vh;
+    overflow: hidden;
+    padding: 42px 48px 28px;
+    background:
+        linear-gradient(
+            rgba(255, 251, 243, 0.94),
+            rgba(250, 241, 228, 0.97)
+        ),
+        url("/assets/flower/paper-texture.webp");
+    background-size: cover;
+    background-position: center;
+    color: #30292b;
+    box-shadow:
+        0 25px 70px rgba(25, 18, 21, 0.32),
+        0 3px 12px rgba(25, 18, 21, 0.12);
+    border: 1px solid rgba(119, 91, 72, 0.2);
+    overflow-y: auto;
+}
+
+.flower-book::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(112, 82, 69, 0.16);
+    pointer-events: none;
+}
+
+.flower-book::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 43%;
+    width: 1px;
+    height: 100%;
+    background: rgba(120, 91, 76, 0.08);
+    pointer-events: none;
+}
+
+/* ========================================
+   CLOSE
+======================================== */
+
+.flower-close {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    z-index: 30;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #3c3436;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+.flower-close:hover {
+    color: #b84d70;
+    transform: rotate(8deg) scale(1.08);
+}
+
+/* ========================================
+   TAPE
+======================================== */
+
+.flower-tape {
+    position: absolute;
+    z-index: 10;
+    background: rgba(222, 184, 190, 0.55);
+    box-shadow: 0 1px 4px rgba(65, 42, 48, 0.08);
+}
+
+.flower-tape-top {
+    top: -8px;
+    left: 44%;
+    width: 112px;
+    height: 30px;
+    transform: rotate(-2deg);
+}
+
+.flower-tape-photo {
+    top: 34%;
+    left: 14%;
+    width: 82px;
+    height: 25px;
+    transform: rotate(-8deg);
+    background: rgba(235, 205, 166, 0.65);
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.flower-header {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 120px 1fr 110px;
+    align-items: start;
+    gap: 25px;
+}
+
+.flower-page-number {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 8px;
+}
+
+.flower-page-number span {
+    color: #bf4268;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.flower-page-number small {
+    color: #998d8d;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    line-height: 1.6;
+    letter-spacing: 2px;
+}
+
+.flower-header-title {
+    padding-left: 8px;
+}
+
+.flower-kicker {
+    display: block;
+    margin-bottom: 12px;
+    color: #b94568;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.flower-header h1 {
+    margin: 0;
+    color: #30292b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 5vw, 67px);
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -3px;
+}
+
+.flower-header h1 em {
+    color: #866f76;
+    font-style: italic;
+}
+
+.flower-year {
+    padding-top: 18px;
+    color: #9a898e;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    text-align: right;
+}
+
+.flower-year strong {
+    display: block;
+    margin-top: 3px;
+    color: #54484b;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* ========================================
+   RULE
+======================================== */
+
+.flower-rule {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 1px;
+    margin: 26px 0 28px;
+    background: rgba(116, 87, 77, 0.25);
+}
+
+/* ========================================
+   CONTENT
+======================================== */
+
+.flower-content {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 38% 62%;
+    min-height: 550px;
+}
+
+/* ========================================
+   LEFT SIDE
+======================================== */
+
+.flower-left {
+    position: relative;
+    padding: 0 40px 0 10px;
+    border-right: 1px solid rgba(116, 87, 77, 0.2);
+}
+
+.flower-story-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.flower-story-label span {
+    color: #bd4266;
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.flower-story-label p {
+    margin: 0;
+    color: #766a6c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ========================================
+   PHOTO
+======================================== */
+
+.flower-photo-card {
+    position: relative;
+    width: 88%;
+    margin: 4px auto 0;
+    padding: 12px 12px 42px;
+    background: #f8f0e5;
+    box-shadow:
+        0 10px 20px rgba(61, 43, 43, 0.12),
+        0 2px 5px rgba(61, 43, 43, 0.08);
+    transform: rotate(-2.5deg);
+}
+
+.flower-photo-card img {
+    display: block;
+    width: 100%;
+    height: 285px;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.82) contrast(0.96);
+}
+
+.flower-photo-tape {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 92px;
+    height: 28px;
+    background: rgba(225, 190, 166, 0.64);
+    transform: translateX(-50%) rotate(3deg);
+    z-index: 5;
+}
+
+.flower-photo-caption {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    left: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.flower-photo-caption span {
+    color: #a28f8e;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.flower-photo-caption strong {
+    color: #594b4e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* ========================================
+   HANDWRITTEN NOTE
+======================================== */
+
+.flower-handwritten {
+    position: relative;
+    width: 78%;
+    margin: 34px auto 0;
+    padding: 18px 20px;
+    background: rgba(244, 225, 213, 0.62);
+    transform: rotate(1.8deg);
+    box-shadow: 0 8px 16px rgba(71, 49, 51, 0.07);
+}
+
+.flower-handwritten::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 30%;
+    width: 60px;
+    height: 17px;
+    background: rgba(222, 184, 190, 0.58);
+    transform: rotate(-3deg);
+}
+
+.flower-handwritten span {
+    display: block;
+    margin-bottom: 7px;
+    color: #bc4266;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.flower-handwritten strong {
+    color: #514548;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.05;
+}
+
+/* ========================================
+   RIGHT SIDE
+======================================== */
+
+.flower-right {
+    padding: 0 10px 0 42px;
+}
+
+.flower-intro {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 12px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(116, 87, 77, 0.18);
+}
+
+.flower-section-number {
+    color: #bd4266;
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.flower-small-title {
+    display: block;
+    margin-bottom: 10px;
+    color: #a88d93;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.flower-intro p {
+    max-width: 600px;
+    margin: 0;
+    color: #685b5e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+/* ========================================
+   MAIN MEMORY
+======================================== */
+
+.flower-main-memory {
+    display: grid;
+    grid-template-columns: 46% 54%;
+    align-items: center;
+    gap: 25px;
+    padding: 25px 0;
+}
+
+/* ========================================
+   EDELWEISS PAPER
+======================================== */
+
+.flower-flower-paper {
+    position: relative;
+    min-height: 260px;
+    padding: 25px;
+    background: rgba(246, 235, 220, 0.75);
+    border: 1px dashed rgba(133, 104, 93, 0.28);
+    transform: rotate(1.5deg);
+    box-shadow: 0 8px 15px rgba(68, 47, 47, 0.06);
+}
+
+.flower-flower-paper::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(131, 102, 90, 0.12);
+}
+
+.flower-paper-word {
+    position: absolute;
+    top: 13px;
+    left: 17px;
+    z-index: 2;
+    color: #aa8990;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    font-style: italic;
+}
+
+.flower-flower-paper img {
+    position: absolute;
+    right: 18%;
+    bottom: 20px;
+    z-index: 2;
+    width: 65%;
+    max-height: 220px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 8px rgba(62, 48, 48, 0.14));
+}
+
+.flower-flower-note {
+    position: absolute;
+    right: 12px;
+    bottom: 13px;
+    z-index: 3;
+    color: #78696d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 9px;
+    font-style: italic;
+    line-height: 1.4;
+    text-align: right;
+}
+
+/* ========================================
+   QUOTE
+======================================== */
+
+.flower-quote {
+    padding: 12px 5px;
+}
+
+.flower-quote > span {
+    display: block;
+    margin-bottom: 17px;
+    color: #b74367;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.flower-quote blockquote {
+    margin: 0;
+    color: #403638;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(22px, 2.2vw, 25px);
+    line-height: 1.18;
+}
+
+.flower-quote blockquote em {
+    color: #9b707b;
+    font-style: italic;
+}
+
+/* ========================================
+   MESSAGE
+======================================== */
+
+.flower-message {
+    position: relative;
+    padding: 22px 25px;
+    background: rgba(238, 221, 210, 0.68);
+    border-left: 3px solid #c04b6c;
+    box-shadow: 0 8px 18px rgba(72, 50, 50, 0.06);
+}
+
+.flower-message::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 14%;
+    width: 70px;
+    height: 17px;
+    background: rgba(225, 190, 166, 0.48);
+    transform: rotate(3deg);
+}
+
+.flower-message-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #bd4266;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.flower-message p {
+    max-width: 620px;
+    margin: 0 0 10px;
+    color: #685a5e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.flower-message strong {
+    display: block;
+    margin-top: 14px;
+    color: #473b3e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.flower-footer {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(116, 87, 77, 0.2);
+    color: #9a898d;
+    font-family: "Courier New", monospace;
+    font-size: 6px;
+    letter-spacing: 2px;
+}
+
+.flower-footer-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(116, 87, 77, 0.16);
+}
+
+/* ========================================
+   STICKER
+======================================== */
+
+.flower-sticker {
+    position: absolute;
+    right: 35px;
+    bottom: 30px;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: rgba(220, 177, 186, 0.8);
+    color: #59454b;
+    transform: rotate(8deg);
+    box-shadow: 0 5px 12px rgba(63, 43, 47, 0.1);
+}
+
+.flower-sticker::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px dashed rgba(93, 63, 70, 0.35);
+    border-radius: 50%;
+}
+
+.flower-sticker span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+    font-style: italic;
+}
+
+.flower-sticker strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+.flower-book::-webkit-scrollbar {
+    width: 5px;
+}
+
+.flower-book::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.flower-book::-webkit-scrollbar-thumb {
+    background: rgba(150, 112, 118, 0.35);
+    border-radius: 10px;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+    .flower-overlay {
+        padding: 18px;
+    }
+
+    .flower-book {
+        width: 96vw;
+        max-height: 94vh;
+        padding: 35px 28px 24px;
+    }
+
+    .flower-header {
+        grid-template-columns: 70px 1fr 70px;
+        gap: 12px;
+    }
+
+    .flower-content {
+        grid-template-columns: 1fr;
+    }
+
+    .flower-left {
+        padding: 0 0 30px;
+        border-right: none;
+        border-bottom: 1px solid rgba(116, 87, 77, 0.2);
+    }
+
+    .flower-right {
+        padding: 30px 0 0;
+    }
+
+    .flower-photo-card {
+        width: 60%;
+    }
+
+    .flower-main-memory {
+        grid-template-columns: 45% 55%;
+    }
+
+    .flower-sticker {
+        display: none;
+    }
+
+    .flower-book::after {
+        display: none;
+    }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+    .flower-overlay {
+        padding: 10px;
+    }
+
+    .flower-book {
+        width: 96vw;
+        max-height: 95vh;
+        padding: 30px 20px 22px;
+    }
+
+    .flower-header {
+        grid-template-columns: 1fr;
+    }
+
+    .flower-page-number {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .flower-year {
+        position: absolute;
+        top: 5px;
+        right: 35px;
+    }
+
+    .flower-header h1 {
+        font-size: 40px;
+        letter-spacing: -2px;
+    }
+
+    .flower-rule {
+        margin: 20px 0;
+    }
+
+    .flower-photo-card {
+        width: 82%;
+    }
+
+    .flower-photo-card img {
+        height: 230px;
+    }
+
+    .flower-main-memory {
+        grid-template-columns: 1fr;
+    }
+
+    .flower-flower-paper {
+        min-height: 300px;
+    }
+
+    .flower-quote blockquote {
+        font-size: 25px;
+    }
+
+    .flower-footer {
+        flex-wrap: wrap;
+        line-height: 1.5;
+    }
+}

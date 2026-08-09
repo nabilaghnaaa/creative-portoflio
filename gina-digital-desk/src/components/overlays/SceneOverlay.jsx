@@ -12,6 +12,7 @@ import CoffeeScreen from "../coffee/CoffeeScreen";
 import travels from "../../data/travels";
 import certificates from "../../data/certificates";
 import LanyardScreen from "../lanyard/LanyardScreen";
+import FlowerScreen from "../flower/FlowerScreen";
 
 export default function SceneOverlay() {
     const { activeObject, closeObject } = useDesk();
@@ -253,6 +254,16 @@ export default function SceneOverlay() {
 
                     {activeObject === "lanyard" && (
                         <LanyardScreen
+                            onClose={handleClose}
+                        />
+                    )}
+
+                    {/* ========================================
+                        FLOWER / EDELWEISS
+                    ======================================== */}
+
+                    {activeObject === "flower" && (
+                        <FlowerScreen
                             onClose={handleClose}
                         />
                     )}
