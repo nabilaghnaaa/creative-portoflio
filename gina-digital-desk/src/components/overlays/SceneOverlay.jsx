@@ -8,6 +8,7 @@ import ImageViewer from "../common/ImageViewer";
 import LaptopScreen from "../laptop/LaptopScreen";
 import CvViewer from "../cv/CvViewer";
 import PhoneScreen from "../phone/PhoneScreen";
+import CoffeeScreen from "../coffee/CoffeeScreen";
 import travels from "../../data/travels";
 import certificates from "../../data/certificates";
 
@@ -20,14 +21,6 @@ export default function SceneOverlay() {
     const [activeCertificate, setActiveCertificate] = useState(null);
 
     const handleClose = () => {
-        setShowAlbum(false);
-        setShowAllCertificates(false);
-        setActivePhoto(null);
-        setActiveCertificate(null);
-        closeObject();
-    };
-
-    const handleBackToDesk = () => {
         setShowAlbum(false);
         setShowAllCertificates(false);
         setActivePhoto(null);
@@ -259,6 +252,16 @@ export default function SceneOverlay() {
 
                     {activeObject === "phone" && (
                         <PhoneScreen
+                            onClose={handleClose}
+                        />
+                    )}
+
+                    {/* ========================================
+                        COFFEE / SCRAPBOOK
+                    ======================================== */}
+
+                    {activeObject === "coffee" && (
+                        <CoffeeScreen
                             onClose={handleClose}
                         />
                     )}

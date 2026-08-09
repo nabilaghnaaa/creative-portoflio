@@ -3,6 +3,7 @@ import Map from "./Map";
 import Laptop from "./Laptop";
 import Phone from "./Phone";
 import Cv from "../cv/Cv";
+import Coffee from "../coffee/Coffee";
 
 export default function DeskScene() {
     return (
@@ -12,6 +13,7 @@ export default function DeskScene() {
             <Laptop />
             <Phone />
             <Cv />
+            <Coffee />
         </section>
     );
 }
