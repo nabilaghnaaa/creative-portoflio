@@ -13,6 +13,7 @@ import travels from "../../data/travels";
 import certificates from "../../data/certificates";
 import LanyardScreen from "../lanyard/LanyardScreen";
 import FlowerScreen from "../flower/FlowerScreen";
+import BookScreen from "../book/BookScreen";
 
 export default function SceneOverlay() {
     const { activeObject, closeObject } = useDesk();
@@ -256,6 +257,14 @@ export default function SceneOverlay() {
                         <LanyardScreen
                             onClose={handleClose}
                         />
+                    )}
+
+                    {/* ========================================
+                        BOOK PINK
+                    ======================================== */}
+
+                    {activeObject === "book" && (
+                        <BookScreen onClose={closeObject} />
                     )}
 
                     {/* ========================================

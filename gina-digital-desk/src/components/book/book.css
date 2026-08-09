@@ -1,0 +1,853 @@
+.book-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(32, 25, 29, 0.78);
+    backdrop-filter: blur(8px);
+    overflow: hidden;
+}
+
+.book-window {
+    position: relative;
+    width: min(1180px, 94vw);
+    height: min(720px, 90vh);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #eee0c9;
+    box-shadow: 0 35px 90px rgba(20, 14, 18, 0.42), 0 8px 25px rgba(20, 14, 18, 0.2);
+    color: #30262a;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.book-window::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 20%, transparent 80%, rgba(70, 40, 35, 0.05));
+}
+
+.book-window::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 42px;
+    z-index: 25;
+    pointer-events: none;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, rgba(55, 35, 35, 0.02), rgba(75, 50, 45, 0.14), rgba(255, 255, 255, 0.18), rgba(65, 40, 35, 0.06), rgba(55, 35, 35, 0.01));
+}
+
+.book-spine {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    z-index: 31;
+    background: rgba(93, 69, 65, 0.2);
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.4);
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.book-page {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    background: #eee1ca;
+}
+
+.book-page-left {
+    padding: 22px 55px 25px;
+}
+
+.book-page-right {
+    padding: 42px 48px 24px;
+    background: #eadcc5;
+}
+
+.book-close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    z-index: 80;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(80, 58, 57, 0.25);
+    border-radius: 50%;
+    background: rgba(255, 249, 239, 0.65);
+    color: #443438;
+    font-family: Georgia, serif;
+    font-size: 23px;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.book-close:hover {
+    background: #443438;
+    color: #fff8ed;
+    transform: rotate(90deg);
+}
+
+.book-topline {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    color: #8d5363;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.book-left-content {
+    position: relative;
+    height: calc(100% - 28px);
+}
+
+.book-section-number {
+    display: block;
+    margin-top: 42px;
+    margin-bottom: 10px;
+    color: #b0526b;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.book-kicker {
+    display: block;
+    color: #916071;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    letter-spacing: 3px;
+}
+
+.book-main-title {
+    margin: 20px 0 23px;
+    color: #30272b;
+    font-size: clamp(80px, 5vw, 76px);
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 1;
+}
+
+.book-main-title em {
+    color: #a36172;
+    font-weight: 400;
+}
+
+.book-title-line {
+    width: 100%;
+    height: 1px;
+    background: rgba(100, 72, 69, 0.2);
+}
+
+.book-description-row {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    gap: 25px;
+    align-items: start;
+    margin-top: 27px;
+}
+
+.book-description-row p {
+    max-width: 430px;
+    margin: 0;
+    color: #66565a;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.book-side-words {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2px;
+    color: #4b3c40;
+    font-size: 14px;
+    line-height: 1.45;
+    text-align: right;
+}
+
+.book-left-showcase {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 91px;
+    height: 145px;
+    padding: 17px 20px;
+    border: 1px solid rgba(105, 76, 73, 0.2);
+    background: rgba(255, 248, 235, 0.32);
+}
+
+.book-showcase-label {
+    display: flex;
+    justify-content: space-between;
+    color: #9a596b;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    letter-spacing: 2.5px;
+}
+
+.book-showcase-content {
+    display: flex;
+    align-items: center;
+    height: calc(100% - 20px);
+    gap: 35px;
+}
+
+.book-tool-orbit {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    flex: 0 0 100px;
+}
+
+.book-orbit-ring {
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(165, 91, 112, 0.35);
+    border-radius: 50%;
+}
+
+.book-orbit-ring::before {
+    content: "";
+    position: absolute;
+    inset: 13px;
+    border: 1px dashed rgba(165, 91, 112, 0.28);
+    border-radius: 50%;
+}
+
+.book-orbit-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(80, 57, 57, 0.2);
+    border-radius: 50%;
+    background: #eadcc6;
+    color: #a55770;
+    font-size: 18px;
+    transform: translate(-50%, -50%);
+}
+
+.book-orbit-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #a55770;
+    border-radius: 50%;
+    background: #eadcc6;
+}
+
+.book-orbit-dot-one {
+    top: 8px;
+    left: 45px;
+}
+
+.book-orbit-dot-two {
+    right: 8px;
+    bottom: 25px;
+}
+
+.book-showcase {
+    position: relative;
+    transform: translateY(300px);
+}
+
+.book-showcase-text span {
+    color: #9a596b;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    letter-spacing: 2px;
+}
+
+.book-showcase-text h2 {
+    margin: 7px 0 0;
+    color: #352a2e;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 0.95;
+}
+
+.book-showcase-text h2 em {
+    color: #a36172;
+}
+
+.book-left-stats {
+    position: absolute;
+    left: 0;
+    bottom: 34px;
+    display: flex;
+    gap: 34px;
+}
+
+.book-left-stats div {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-left-stats strong {
+    color: #433438;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.book-left-stats span {
+    margin-top: 4px;
+    color: #8c6870;
+    font-family: "Courier New", monospace;
+    font-size: 6px;
+    letter-spacing: 2px;
+}
+
+/* ========================================
+   STICKY NOTE / SCRAPBOOK NOTE
+======================================== */
+
+.book-left-note {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+    width: 230px;
+    min-height: 125px;
+    max-width: 230px;
+    padding: 22px 22px 18px;
+    box-sizing: border-box;
+    color: #514346;
+    background: #f4e7c9;
+    border: 1px solid rgba(125, 91, 79, 0.12);
+    box-shadow: 3px 6px 13px rgba(55, 38, 43, 0.14), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+    transform: rotate(-2deg);
+    transform-origin: center center;
+    z-index: 8;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.book-left-note::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 76px;
+    height: 19px;
+    background: rgba(194, 154, 136, 0.68);
+    box-shadow: 0 1px 3px rgba(50, 35, 38, 0.08);
+    transform: translateX(-50%) rotate(-2deg);
+    z-index: 3;
+}
+
+.book-left-note::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px dashed rgba(117, 84, 91, 0.18);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.book-left-note span {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    color: #9a596b;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+.book-left-note p {
+    position: relative;
+    margin: 0;
+    color: #514346;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    line-height: 1.55;
+    z-index: 2;
+}
+
+.book-left-note em {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    color: #9a596b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    text-align: right;
+    z-index: 2;
+}
+
+.book-left-note:hover {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow: 5px 11px 20px rgba(55, 38, 43, 0.19), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.book-page-footer {
+    position: absolute;
+    left: 55px;
+    right: 55px;
+    bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #8c6a71;
+    font-family: "Courier New", monospace;
+    font-size: 6px;
+    letter-spacing: 2px;
+}
+
+.book-right-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-right: 34px;
+}
+
+.book-right-kicker {
+    display: block;
+    margin-bottom: 10px;
+    color: #a15b6d;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.book-right-header h2 {
+    margin: 0;
+    color: #382c30;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+.book-right-header h2 em {
+    color: #a36172;
+    font-weight: 400;
+}
+
+.book-page-number {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    padding-top: 5px;
+    color: #8b6670;
+    font-family: "Courier New", monospace;
+}
+
+.book-page-number span {
+    font-size: 6px;
+    letter-spacing: 1px;
+}
+
+.book-page-number strong {
+    font-size: 12px;
+}
+
+.book-page-number small {
+    font-size: 7px;
+}
+
+.book-right-divider {
+    width: 100%;
+    height: 1px;
+    margin-top: 22px;
+    background: rgba(101, 74, 72, 0.2);
+}
+
+.book-tech-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 15px 0 12px;
+}
+
+.book-tech-heading div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.book-tech-heading span {
+    color: #a15b6d;
+    font-family: "Courier New", monospace;
+    font-size: 6px;
+    letter-spacing: 2px;
+}
+
+.book-tech-heading strong {
+    color: #665258;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    letter-spacing: 1px;
+}
+
+.book-tech-heading p {
+    margin: 0;
+    color: #79666a;
+    font-size: 8px;
+    line-height: 1.35;
+    text-align: right;
+}
+
+.book-tech-grid {
+    position: relative;
+    height: 342px;
+    overflow: hidden;
+}
+
+.book-tech-grid-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.book-tech-card {
+    position: relative;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 25px 47px 1fr 18px;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 11px;
+    border: 1px solid rgba(93, 68, 66, 0.16);
+    border-radius: 3px;
+    background: rgba(250, 241, 226, 0.76);
+    box-shadow: 0 4px 12px rgba(80, 55, 53, 0.05);
+    cursor: default;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.book-tech-card:hover {
+    border-color: rgba(157, 83, 106, 0.4);
+    box-shadow: 0 10px 20px rgba(80, 55, 53, 0.1);
+}
+
+.book-tech-card-number {
+    align-self: flex-start;
+    color: #9b6873;
+    font-family: "Courier New", monospace;
+    font-size: 6px;
+    letter-spacing: 1px;
+}
+
+.book-tech-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(98, 71, 69, 0.16);
+    border-radius: 50%;
+    background: #f1e6d3;
+}
+
+.book-tech-icon img {
+    width: 21px;
+    height: 21px;
+    object-fit: contain;
+}
+
+.book-tech-info {
+    min-width: 0;
+}
+
+.book-tech-info span {
+    display: block;
+    margin-bottom: 3px;
+    color: #a45c6d;
+    font-family: "Courier New", monospace;
+    font-size: 5.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.book-tech-info h3 {
+    overflow: hidden;
+    margin: 0;
+    color: #433438;
+    font-size: 16px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-tech-info p {
+    overflow: hidden;
+    margin: 3px 0 0;
+    color: #806e70;
+    font-size: 7px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-tech-arrow {
+    align-self: flex-start;
+    color: #a45c6d;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    transition: transform 0.2s ease;
+}
+
+.book-tech-card:hover .book-tech-arrow {
+    transform: translate(3px, -3px);
+}
+
+.book-right-bottom {
+    position: absolute;
+    left: 48px;
+    right: 48px;
+    bottom: 31px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 13px;
+    border-top: 1px solid rgba(101, 74, 72, 0.18);
+}
+
+.book-mini-note span {
+    display: block;
+    margin-bottom: 4px;
+    color: #9b5c6d;
+    font-family: "Courier New", monospace;
+    font-size: 6px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.book-mini-note p {
+    margin: 0;
+    color: #67565a;
+    font-size: 9px;
+    line-height: 1.35;
+}
+
+.book-navigation {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.book-nav-button {
+    min-width: 72px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: 1px solid rgba(85, 62, 61, 0.3);
+    border-radius: 20px;
+    background: rgba(250, 242, 228, 0.65);
+    color: #49383d;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.book-nav-button span {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    line-height: 1;
+}
+
+.book-nav-button:hover:not(:disabled) {
+    border-color: #9f5269;
+    background: #4b383d;
+    color: #fff7ea;
+    transform: translateY(-2px);
+}
+
+.book-nav-button.is-disabled,
+.book-nav-button:disabled {
+    opacity: 0.32;
+    cursor: default;
+}
+
+.book-pagination {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #8d6c72;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+}
+
+.book-pagination span {
+    transition: 0.2s ease;
+}
+
+.book-pagination span.active {
+    color: #a35169;
+    font-weight: 700;
+}
+
+.book-pagination i {
+    width: 15px;
+    height: 1px;
+    background: rgba(117, 84, 84, 0.3);
+}
+
+.book-right-footer {
+    position: absolute;
+    left: 48px;
+    right: 48px;
+    bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #8d6b72;
+    font-family: "Courier New", monospace;
+    font-size: 6px;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 900px) {
+    .book-overlay {
+        padding: 10px;
+    }
+
+    .book-window {
+        width: 96vw;
+        height: 88vh;
+    }
+
+    .book-page-left {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    .book-page-right {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .book-main-title {
+        font-size: 50px;
+    }
+
+    .book-left-showcase {
+        bottom: 95px;
+    }
+
+    .book-right-bottom,
+    .book-right-footer {
+        left: 30px;
+        right: 30px;
+    }
+
+    .book-left-note {
+        width: 210px;
+        min-height: 120px;
+        padding: 20px 19px 16px;
+    }
+}
+
+@media (max-width: 700px) {
+    .book-overlay {
+        align-items: center;
+        padding: 8px;
+    }
+
+    .book-window {
+        width: 96vw;
+        height: 86vh;
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+    }
+
+    .book-window::after,
+    .book-spine {
+        display: none;
+    }
+
+    .book-page {
+        min-height: 520px;
+    }
+
+    .book-page-left,
+    .book-page-right {
+        padding: 25px;
+    }
+
+    .book-main-title {
+        font-size: 52px;
+    }
+
+    .book-left-showcase {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin-top: 35px;
+    }
+
+    .book-left-stats,
+    .book-left-note {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin-top: 25px;
+    }
+
+    .book-left-note {
+        width: 230px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .book-tech-grid {
+        height: auto;
+    }
+
+    .book-tech-grid-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .book-right-bottom {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin-top: 25px;
+    }
+
+    .book-right-footer {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin-top: 20px;
+    }
+}

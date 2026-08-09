@@ -199,7 +199,7 @@ PHONE + CONTACT CARD
 
 .desk-headphone {
     top: 9%;
-    left: 15%;
+    left: 12%;
     width: 13%;
     z-index: 19;
 }
@@ -225,7 +225,7 @@ PHONE + CONTACT CARD
 
 .desk-flower {
     top: -2%;
-    left: 4%;
+    left: 0%;
     width: 15%;
     z-index: 20;
 }
@@ -272,6 +272,18 @@ PHONE + CONTACT CARD
     right: -2%;
     bottom: -1%;
     width: 13%;
+    z-index: 18;
+}
+
+
+/* ========================================
+BOOK
+======================================== */
+
+.desk-book {
+    left: 2%;
+    bottom: 25%;
+    width: 18%;
     z-index: 18;
 }
 

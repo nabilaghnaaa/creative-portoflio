@@ -8,6 +8,7 @@ import Flower from "./Flower";
 import Headphone from "../headphone/Headphone";
 import Cv from "../cv/Cv";
 import Coffee from "../coffee/Coffee";
+import Book from "./Book";
 
 export default function DeskScene() {
     return (
@@ -22,6 +23,7 @@ export default function DeskScene() {
             <Cv />
             <Coffee />
             <Headphone />
+            <Book />
         </section>
     );
 }
